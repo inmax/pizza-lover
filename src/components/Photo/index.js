@@ -26,12 +26,15 @@ const Photo = ({
   };
 
   return (
+    <div>
     <img
       key={key}
       style={imgStyle}
       {...photo}
       onClick={handleClick}
     />
+    <h4>lelelelel</h4>
+    </div>
   );
 };
 
