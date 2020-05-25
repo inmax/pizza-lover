@@ -35,8 +35,8 @@ const parseData=(arrayData)=>{
   return arrayData.map((photoData)=>{
     return {
       src: get(photoData, "images.downsized_large.url"),
-      width: get(photoData, "images.downsized_large.width"),
-      height: get(photoData, "images.downsized_large.height"),
+      width: parseInt(get(photoData, "images.downsized_large.width"),10),
+      height: parseInt(get(photoData, "images.downsized_large.height"),10),
       title: get(photoData, "title")
     }
   });
@@ -81,7 +81,6 @@ const parseData=(arrayData)=>{
   const [currentImage, setCurrentImage] = useState(0);
   const [viewerIsOpen, setViewerIsOpen] = useState(false);
   const openLightbox = useCallback((event, { photo, index }) => {
-    console.log("open");
     setCurrentImage(index);
     setViewerIsOpen(true);
   }, []);
@@ -94,7 +93,7 @@ const parseData=(arrayData)=>{
   if (error) {
     return <div>Error: {error.message}</div>;
   } else if (!isLoaded) {
-    return <div>Loading...lllllllllllls</div>;
+    return <div>Loading...</div>;
   } else {
     return (
       <div>
