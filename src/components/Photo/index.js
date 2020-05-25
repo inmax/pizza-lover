@@ -1,7 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-
 const Photo = ({
   index,
   onClick,
@@ -27,13 +26,8 @@ const Photo = ({
 
   return (
     <div>
-    <img
-      key={key}
-      style={imgStyle}
-      {...photo}
-      onClick={handleClick}
-    />
-    <h4>lelelelel</h4>
+      <img key={key} style={imgStyle} {...photo} onClick={handleClick} />
+      <h4>lelelelel</h4>
     </div>
   );
 };
