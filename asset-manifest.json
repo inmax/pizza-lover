@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/inmax/pizza-lover/static/css/main.5f361e03.chunk.css",
+    "main.js": "/inmax/pizza-lover/static/js/main.3e685e83.chunk.js",
+    "main.js.map": "/inmax/pizza-lover/static/js/main.3e685e83.chunk.js.map",
+    "runtime-main.js": "/inmax/pizza-lover/static/js/runtime-main.866cf2ed.js",
+    "runtime-main.js.map": "/inmax/pizza-lover/static/js/runtime-main.866cf2ed.js.map",
+    "static/js/2.d46c8e26.chunk.js": "/inmax/pizza-lover/static/js/2.d46c8e26.chunk.js",
+    "static/js/2.d46c8e26.chunk.js.map": "/inmax/pizza-lover/static/js/2.d46c8e26.chunk.js.map",
+    "static/css/3.160933d5.chunk.css": "/inmax/pizza-lover/static/css/3.160933d5.chunk.css",
+    "static/js/3.670add42.chunk.js": "/inmax/pizza-lover/static/js/3.670add42.chunk.js",
+    "static/js/3.670add42.chunk.js.map": "/inmax/pizza-lover/static/js/3.670add42.chunk.js.map",
+    "index.html": "/inmax/pizza-lover/index.html",
+    "precache-manifest.fa938ededd81e7a360d48b50b5760aa6.js": "/inmax/pizza-lover/precache-manifest.fa938ededd81e7a360d48b50b5760aa6.js",
+    "service-worker.js": "/inmax/pizza-lover/service-worker.js",
+    "static/css/3.160933d5.chunk.css.map": "/inmax/pizza-lover/static/css/3.160933d5.chunk.css.map",
+    "static/css/main.5f361e03.chunk.css.map": "/inmax/pizza-lover/static/css/main.5f361e03.chunk.css.map",
+    "static/js/2.d46c8e26.chunk.js.LICENSE.txt": "/inmax/pizza-lover/static/js/2.d46c8e26.chunk.js.LICENSE.txt",
+    "static/media/logo.svg": "/inmax/pizza-lover/static/media/logo.5d5d9eef.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.866cf2ed.js",
+    "static/js/2.d46c8e26.chunk.js",
+    "static/css/main.5f361e03.chunk.css",
+    "static/js/main.3e685e83.chunk.js"
+  ]
+}
