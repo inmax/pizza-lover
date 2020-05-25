@@ -1,28 +1,44 @@
 import React, { useState, useEffect, lazy, Suspense, useCallback } from "react";
 import Gallery from "react-photo-gallery";
 import Carousel, { Modal, ModalGateway } from "react-images";
-import Photo from "components/Photo";
+// import Photo from "components/Photo";
 import InfiniteScroll from "react-infinite-scroller";
+import Loadable from "react-loadable";
+
+function Loading() {
+    return <h3>Loading...</h3>;
+}
+
+const Photo = Loadable({
+    loader: () => import('components/Photo'),
+    loading:Loading,
+});
 
 const Album = () => {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [pagination, setPagination] = useState(0);
   const [items, setItems] = useState([]);
+  const [totalPhoto, setTotal]=useState();
   const LIMIT = 5;
 
-  const imageRenderer = useCallback(
-    ({ index, left, top, key, photo }) => (
-      <Photo key={key} index={index} photo={photo} left={left} top={top} />
-    ),
-    [items]
+
+
+  const imageRenderer = ({ index, left, top, key, photo }) => (
+    <Photo
+      key={key}
+      index={index}
+      photo={photo}
+      left={left}
+      top={top}
+      onClick={openLightbox}
+    />
   );
 
   /* API fetch ***************************************************************************/
   const getPhotos = async pag => {
     const url = `https://api.giphy.com/v1/gifs/search?api_key=svM9aKGJwmCsZrHm3rgnGLSZEMsgZtUQ&q=pizza&limit=5&offset=${LIMIT *
       pag}&rating=G&lang=en"`;
-
 
     await fetch(url)
       .then(res => res.json())
@@ -87,7 +103,7 @@ const Album = () => {
   const [viewerIsOpen, setViewerIsOpen] = useState(false);
 
   const openLightbox = useCallback((event, { photo, index }) => {
-    console.log("asdfasf");
+    console.log("open");
     setCurrentImage(index);
     setViewerIsOpen(true);
   }, []);
@@ -117,11 +133,15 @@ const Album = () => {
           hasMore={true}
           loader={
             <div className="loader" key={0}>
-              Loading ... aaaaaaaa
+              Loading ...
             </div>
           }
         >
-          <Gallery photos={items} direction={"column"} onClick={openLightbox} />
+          <Gallery
+            photos={items}
+            direction={"column"}
+            renderImage={imageRenderer}
+          />
         </InfiniteScroll>
         <ModalGateway>
           {viewerIsOpen ? (

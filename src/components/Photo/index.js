@@ -25,15 +25,18 @@ const Photo = ({
   const handleClick = event => {
     onClick(event, { photo, index });
   };
-  return (<img
-  key={key}
-  style={imgStyle}
-  {...photo}
-  onClick={onClick ? handleClick : null}  
 
-/>)
   return (
-    <div className="card-photo"   onClick={onClick ? handleClick : null}  
+    <img
+      key={key}
+      style={ imgStyle}
+      {...photo}
+      onClick={onClick ? handleClick : null}
+    />
+  );
+
+  return (
+    <div className="card-photo" onClick={onClick ? handleClick : null}  
     >
       <figure className="card-photo__image">
           <img

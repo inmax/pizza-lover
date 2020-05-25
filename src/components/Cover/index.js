@@ -9,4 +9,4 @@ const Cover = props => {
   );
 };
 
-export default Cover;
+export default Cover; 
