@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import './style.scss';
 
 const Photo = ({
   index,
@@ -11,8 +12,9 @@ const Photo = ({
   left,
   key
 }) => {
+
   const imgStyle = {
-    margin: margin,
+    //margin: margin,
     display: "block",
     cursor: "pointer",
     position: "absolute",
@@ -23,11 +25,26 @@ const Photo = ({
   const handleClick = event => {
     onClick(event, { photo, index });
   };
+  return (<img
+  key={key}
+  style={imgStyle}
+  {...photo}
+  onClick={onClick ? handleClick : null}  
 
+/>)
   return (
-    <div>
-      <img key={key} style={imgStyle} {...photo} onClick={handleClick} />
-      <h4>lelelelel</h4>
+    <div className="card-photo"   onClick={onClick ? handleClick : null}  
+    >
+      <figure className="card-photo__image">
+          <img
+            key={key}
+            style={imgStyle}
+            {...photo}
+          
+          />
+      </figure>
+
+      {/* <div className="card-photo__title"> <h4>lelelelel</h4></div> */}
     </div>
   );
 };
