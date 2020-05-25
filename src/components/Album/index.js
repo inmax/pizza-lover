@@ -1,17 +1,14 @@
 import React, { useState, useEffect, lazy, Suspense, useCallback } from "react";
 import Gallery from "react-photo-gallery";
 import Carousel, { Modal, ModalGateway } from "react-images";
-// import Photo from "components/Photo";
 import InfiniteScroll from "react-infinite-scroller";
 import Loadable from "react-loadable";
+import get from "lodash/get";
 
-function Loading() {
-    return <h3>Loading...</h3>;
-}
-
+const Loading = () => <p>Loading...</p>;
 const Photo = Loadable({
-    loader: () => import('components/Photo'),
-    loading:Loading,
+  loader: () => import("components/Photo"),
+  loading: Loading
 });
 
 const Album = () => {
@@ -19,10 +16,8 @@ const Album = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [pagination, setPagination] = useState(0);
   const [items, setItems] = useState([]);
-  const [totalPhoto, setTotal]=useState();
+  const [total, setTotal] = useState();
   const LIMIT = 5;
-
-
 
   const imageRenderer = ({ index, left, top, key, photo }) => (
     <Photo
@@ -35,7 +30,18 @@ const Album = () => {
     />
   );
 
-  /* API fetch ***************************************************************************/
+const parseData=(arrayData)=>{
+  if(!Array.isArray(arrayData)) return null;
+  return arrayData.map((photoData)=>{
+    return {
+      src: get(photoData, "images.downsized_large.url"),
+      width: get(photoData, "images.downsized_large.width"),
+      height: get(photoData, "images.downsized_large.height"),
+      title: get(photoData, "title")
+    }
+  });
+};
+  /* API fetch */
   const getPhotos = async pag => {
     const url = `https://api.giphy.com/v1/gifs/search?api_key=svM9aKGJwmCsZrHm3rgnGLSZEMsgZtUQ&q=pizza&limit=5&offset=${LIMIT *
       pag}&rating=G&lang=en"`;
@@ -45,41 +51,13 @@ const Album = () => {
       .then(
         result => {
           setIsLoaded(true);
-          console.log(result);
-          const { albums } = result;
           const newItems = [
             ...items,
-            {
-              src: result.data[0].images.original_still.url,
-              width: result.data[0].images.original_still.width,
-              height: result.data[0].images.original_still.height,
-              title: "1"
-            },
-            {
-              src: result.data[1].images.downsized_large.url,
-              width: result.data[1].images.downsized_large.width,
-              height: result.data[1].images.downsized_large.height,
-              title: "2"
-            },
-            {
-              src: result.data[2].images.downsized_large.url,
-              width: result.data[2].images.downsized_large.width,
-              height: result.data[2].images.downsized_large.height,
-              title: "3"
-            },
-            {
-              src: result.data[3].images.downsized_large.url,
-              width: result.data[3].images.downsized_large.width,
-              height: result.data[3].images.downsized_large.height,
-              title: "4"
-            },
-            {
-              src: result.data[4].images.downsized_large.url,
-              width: result.data[4].images.downsized_large.width,
-              height: result.data[4].images.downsized_large.height,
-              title: "5"
-            }
+           ... parseData(result.data)
           ];
+          if (get(result, "pagination.total_count") !== total) {
+            setTotal(get(result, "pagination.total_count"));
+          }
           setItems(newItems);
         },
         // Nota: es importante manejar errores aquí y no en
@@ -99,19 +77,15 @@ const Album = () => {
     },
     [pagination]
   );
+
   const [currentImage, setCurrentImage] = useState(0);
   const [viewerIsOpen, setViewerIsOpen] = useState(false);
-
   const openLightbox = useCallback((event, { photo, index }) => {
     console.log("open");
     setCurrentImage(index);
     setViewerIsOpen(true);
   }, []);
-  //   const openLightbox = (event, { photo, index }) => {
-  //   console.log('asdfasf')
-  //     setCurrentImage(index);
-  //     setViewerIsOpen(true);
-  //   };
+
   const closeLightbox = () => {
     setCurrentImage(0);
     setViewerIsOpen(false);
@@ -122,7 +96,6 @@ const Album = () => {
   } else if (!isLoaded) {
     return <div>Loading...lllllllllllls</div>;
   } else {
-    //return "aaaaa"
     return (
       <div>
         <InfiniteScroll
@@ -130,7 +103,7 @@ const Album = () => {
           loadMore={pagination => {
             getPhotos(pagination);
           }}
-          hasMore={true}
+          hasMore={total > pagination * LIMIT}
           loader={
             <div className="loader" key={0}>
               Loading ...
