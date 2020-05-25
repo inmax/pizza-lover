@@ -1,27 +1,25 @@
 {
   "files": {
-    "main.css": "/pizza-lover/static/css/main.5f361e03.chunk.css",
-    "main.js": "/pizza-lover/static/js/main.3321878f.chunk.js",
-    "main.js.map": "/pizza-lover/static/js/main.3321878f.chunk.js.map",
-    "runtime-main.js": "/pizza-lover/static/js/runtime-main.53759b70.js",
-    "runtime-main.js.map": "/pizza-lover/static/js/runtime-main.53759b70.js.map",
-    "static/js/2.d46c8e26.chunk.js": "/pizza-lover/static/js/2.d46c8e26.chunk.js",
-    "static/js/2.d46c8e26.chunk.js.map": "/pizza-lover/static/js/2.d46c8e26.chunk.js.map",
-    "static/css/3.160933d5.chunk.css": "/pizza-lover/static/css/3.160933d5.chunk.css",
-    "static/js/3.670add42.chunk.js": "/pizza-lover/static/js/3.670add42.chunk.js",
-    "static/js/3.670add42.chunk.js.map": "/pizza-lover/static/js/3.670add42.chunk.js.map",
+    "main.css": "/pizza-lover/static/css/main.67e5d762.chunk.css",
+    "main.js": "/pizza-lover/static/js/main.891d29b8.chunk.js",
+    "main.js.map": "/pizza-lover/static/js/main.891d29b8.chunk.js.map",
+    "runtime-main.js": "/pizza-lover/static/js/runtime-main.efe2996a.js",
+    "runtime-main.js.map": "/pizza-lover/static/js/runtime-main.efe2996a.js.map",
+    "static/js/2.b7aef2fe.chunk.js": "/pizza-lover/static/js/2.b7aef2fe.chunk.js",
+    "static/js/2.b7aef2fe.chunk.js.map": "/pizza-lover/static/js/2.b7aef2fe.chunk.js.map",
+    "static/js/3.bf7ae352.chunk.js": "/pizza-lover/static/js/3.bf7ae352.chunk.js",
+    "static/js/3.bf7ae352.chunk.js.map": "/pizza-lover/static/js/3.bf7ae352.chunk.js.map",
     "index.html": "/pizza-lover/index.html",
-    "precache-manifest.f01d1a979a4ffc24c332e9a8dcdfa8db.js": "/pizza-lover/precache-manifest.f01d1a979a4ffc24c332e9a8dcdfa8db.js",
+    "precache-manifest.21f48d3f46ad5e690c06f84c7ae56882.js": "/pizza-lover/precache-manifest.21f48d3f46ad5e690c06f84c7ae56882.js",
     "service-worker.js": "/pizza-lover/service-worker.js",
-    "static/css/3.160933d5.chunk.css.map": "/pizza-lover/static/css/3.160933d5.chunk.css.map",
-    "static/css/main.5f361e03.chunk.css.map": "/pizza-lover/static/css/main.5f361e03.chunk.css.map",
-    "static/js/2.d46c8e26.chunk.js.LICENSE.txt": "/pizza-lover/static/js/2.d46c8e26.chunk.js.LICENSE.txt",
+    "static/css/main.67e5d762.chunk.css.map": "/pizza-lover/static/css/main.67e5d762.chunk.css.map",
+    "static/js/2.b7aef2fe.chunk.js.LICENSE.txt": "/pizza-lover/static/js/2.b7aef2fe.chunk.js.LICENSE.txt",
     "static/media/logo.svg": "/pizza-lover/static/media/logo.5d5d9eef.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.53759b70.js",
-    "static/js/2.d46c8e26.chunk.js",
-    "static/css/main.5f361e03.chunk.css",
-    "static/js/main.3321878f.chunk.js"
+    "static/js/runtime-main.efe2996a.js",
+    "static/js/2.b7aef2fe.chunk.js",
+    "static/css/main.67e5d762.chunk.css",
+    "static/js/main.891d29b8.chunk.js"
   ]
 }
